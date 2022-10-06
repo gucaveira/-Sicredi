@@ -1,6 +1,6 @@
 package com.example.core.domain.model
 
-data class Events(val eventsItem: List<EventsItem>)
+class Events : ArrayList<EventsItem>()
 
 data class EventsItem(
     val date: Long,
