@@ -3,23 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/EventsFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.sicredi.presentation.eventslist.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/EventsFragment"
+        android:name="com.example.sicredi.presentation.eventslist.EventsFragment"
+        tools:layout="@layout/fragment_list_events">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_EventsFragment_to_DetailFragment"
+            app:destination="@id/DetailFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.sicredi.SecondFragment"
+        android:id="@+id/DetailFragment"
+        android:name="com.example.sicredi.presentation.detail.DetailFragment"
         android:label="{screenTitle}"
-        tools:layout="@layout/fragment_second">
+        tools:layout="@layout/fragment_detail">
 
         <argument
             android:name="screenTitle"

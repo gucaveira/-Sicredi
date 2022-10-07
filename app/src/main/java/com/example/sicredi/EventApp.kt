@@ -10,12 +10,12 @@ import com.example.sicredi.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.GlobalContext
 
-class SicrediApp : Application() {
+class EventApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
         GlobalContext.startKoin {
-            androidContext(this@SicrediApp)
+            androidContext(this@EventApp)
             modules(
                 listOf(
                     networkModule,

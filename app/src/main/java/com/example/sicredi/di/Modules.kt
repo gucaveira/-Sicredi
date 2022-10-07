@@ -1,13 +1,13 @@
 package com.example.sicredi.di
 
-import com.example.core.data.repository.SicrediRemoteDataSource
-import com.example.core.data.repository.SicrediRepository
+import com.example.core.data.repository.EventsRemoteDataSource
+import com.example.core.data.repository.EventsRepository
 import com.example.core.usecase.GetEventUseCaseImpl
 import com.example.core.usecase.GetEventsUseCase
 import com.example.core.usecase.base.AppCoroutinesDispatchers
 import com.example.core.usecase.base.CoroutinesDispatchers
 import com.example.sicredi.BuildConfig.BASE_URL
-import com.example.sicredi.framework.SicrediRepositoryImpl
+import com.example.sicredi.framework.EventsRepositoryImpl
 import com.example.sicredi.framework.imageLoader.GlideImageLoader
 import com.example.sicredi.framework.imageLoader.ImageLoader
 import com.example.sicredi.framework.network.Api
@@ -38,7 +38,7 @@ val networkModule = module {
             .build()
     }
 
-    factory<SicrediRemoteDataSource> { RetrofitDataSource(get()) }
+    factory<EventsRemoteDataSource> { RetrofitDataSource(get()) }
 }
 
 val viewModelModule = module {
@@ -58,5 +58,5 @@ val coroutinesDispatchersModule = module {
 }
 
 val repositoryModule = module {
-    factory<SicrediRepository> { SicrediRepositoryImpl(get()) }
+    factory<EventsRepository> { EventsRepositoryImpl(get()) }
 }

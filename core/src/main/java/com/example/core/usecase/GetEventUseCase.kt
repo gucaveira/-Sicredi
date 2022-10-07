@@ -1,6 +1,6 @@
 package com.example.core.usecase
 
-import com.example.core.data.repository.SicrediRepository
+import com.example.core.data.repository.EventsRepository
 import com.example.core.domain.model.Events
 import com.example.core.usecase.base.CoroutinesDispatchers
 import com.example.core.usecase.base.ResultStatus
@@ -14,7 +14,7 @@ interface GetEventsUseCase {
 }
 
 class GetEventUseCaseImpl(
-    private val repository: SicrediRepository,
+    private val repository: EventsRepository,
     private val dispatchers: CoroutinesDispatchers
 ) : UserCase<Events>(), GetEventsUseCase {
 

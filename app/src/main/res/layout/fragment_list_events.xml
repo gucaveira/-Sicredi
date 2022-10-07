@@ -6,6 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include layout="@layout/shimmer_loading" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerEvent"
         android:layout_width="match_parent"
@@ -13,6 +15,16 @@
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_list_event" />
+
+    <TextView
+        android:id="@+id/TvError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:alpha="0.5"
+        android:drawablePadding="8dp"
+        android:text="@string/events_no_events_in_the_list"
+        app:drawableTopCompat="@drawable/ic_error" />
 
     <TextView
         android:id="@+id/MessageNotEvent"

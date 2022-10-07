@@ -31,12 +31,12 @@ class EventsAdapter(
         private val onItemClickListener: OnEventItemClick
     ) : RecyclerView.ViewHolder(itemEventBinding.root) {
 
-        private val textName = itemEventBinding.textView
-        private val imageView = itemEventBinding.imageView
+        private val tvTitle = itemEventBinding.tvTitle
+        private val imageEvent = itemEventBinding.imageEvent
 
         fun bind(event: EventsItem) {
-            textName.text = event.title
-            imageLoader.load(imageView, event.image)
+            tvTitle.text = event.title
+            imageLoader.load(imageEvent, event.image)
 
             itemView.setOnClickListener {
                 onItemClickListener.invoke(event)

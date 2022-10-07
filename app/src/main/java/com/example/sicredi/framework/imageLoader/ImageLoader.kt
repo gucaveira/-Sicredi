@@ -7,7 +7,7 @@ import com.example.sicredi.R
 interface ImageLoader {
     fun load(
         imageView: ImageView, imageUrl: String,
-        @DrawableRes placerHolder: Int = R.drawable.ic_img_placeholder,
-        @DrawableRes fallback: Int = R.drawable.ic_img_loading_error
+        @DrawableRes placerHolder: Int = R.drawable.ic_placeholder,
+        @DrawableRes fallback: Int = R.drawable.ic_loading_error
     )
 }

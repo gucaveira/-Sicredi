@@ -21,11 +21,13 @@ class EventsViewModel(
             useCase().collect { status ->
                 _uiState.value = when (status) {
                     ResultStatus.Loading -> UiState.Loading
+
                     is ResultStatus.Success -> {
                         if (status.data.isEmpty()) {
                             UiState.Empty
                         } else UiState.Success(status.data)
                     }
+
                     is ResultStatus.Error -> UiState.Error
                 }
             }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardCharacter"
     android:layout_width="match_parent"
     android:layout_height="230dp"
     android:layout_margin="8dp"
@@ -12,30 +12,28 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageEvent"
+            android:id="@+id/imageCharacter"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="center"
-            app:layout_constraintBottom_toTopOf="@+id/tvTitle"
+            android:layout_height="170dp"
+            android:background="@color/medium_grey"
+            android:importantForAccessibility="no"
+            android:scaleType="fitXY"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars[2]" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvTitle"
+            android:id="@+id/textName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="12dp"
+            android:background="@color/medium_grey"
             android:ellipsize="end"
             android:maxLines="1"
-            android:textAlignment="center"
-            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageEvent"
-            tools:text="Feira de adoção de animais na Redenção" />
+            app:layout_constraintTop_toBottomOf="@+id/imageCharacter" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
