@@ -6,6 +6,8 @@ plugins {
 }
 
 apply from: '../config/detekt/detekt.gradle'
+apply plugin: 'kotlin-parcelize'
+apply plugin:  "androidx.navigation.safeargs.kotlin"
 
 android {
     namespace 'com.example.sicredi'

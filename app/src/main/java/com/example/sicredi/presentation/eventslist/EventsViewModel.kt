@@ -24,11 +24,8 @@ class EventsViewModel(
                     is ResultStatus.Success -> {
                         if (status.data.isEmpty()) {
                             UiState.Empty
-                        } else {
-                            UiState.Success(status.data)
-                        }
+                        } else UiState.Success(status.data)
                     }
-
                     is ResultStatus.Error -> UiState.Error
                 }
             }

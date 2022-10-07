@@ -6,8 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.sicredi.R
+import com.example.core.domain.model.Events
 import com.example.sicredi.databinding.FragmentFirstBinding
+import com.example.sicredi.framework.imageLoader.ImageLoader
+import com.example.sicredi.presentation.detail.DetailViewArg
+import com.example.sicredi.presentation.eventslist.adapter.EventsAdapter
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FirstFragment : Fragment() {
@@ -16,6 +20,7 @@ class FirstFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: EventsViewModel by viewModel()
+    private val imageLoader: ImageLoader by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -26,14 +31,50 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-            viewModel.fetchEvent()
+        viewModel.uiState.observe(viewLifecycleOwner) { uiState ->
+            when (uiState) {
+                is EventsViewModel.UiState.Success -> {
+                    initCharactersAdapter(uiState.detailParentList)
+                    FLIPPER_CHILD_POSITION_LIST_EVENTS
+                }
+                is EventsViewModel.UiState.Error -> {
+
+                }
+
+                EventsViewModel.UiState.Empty -> {
+                    FLIPPER_CHILD_POSITION_EMPTY_EVENTS
+                }
+
+                else -> {}
+            }
+        }
+
+        viewModel.fetchEvent()
+
+    }
+
+    private fun initCharactersAdapter(detailParentList: Events) {
+        binding.recyclerEvent.run {
+            setHasFixedSize(true)
+            adapter = EventsAdapter(detailParentList, imageLoader) { event ->
+
+                val directions = FirstFragmentDirections.actionFirstFragmentToSecondFragment(
+                    event.title,
+                    DetailViewArg(event.id, event.title, event.description, event.image)
+                )
+
+            findNavController().navigate(directions)
+            }
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    companion object {
+        private const val FLIPPER_CHILD_POSITION_LIST_EVENTS = 0
+        private const val FLIPPER_CHILD_POSITION_EMPTY_EVENTS = 1
     }
 }

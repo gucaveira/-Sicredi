@@ -18,11 +18,15 @@
     <fragment
         android:id="@+id/SecondFragment"
         android:name="com.example.sicredi.SecondFragment"
-        android:label="@string/second_fragment_label"
+        android:label="{screenTitle}"
         tools:layout="@layout/fragment_second">
 
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+        <argument
+            android:name="screenTitle"
+            app:argType="string" />
+
+        <argument
+            android:name="detailViewArg"
+            app:argType="com.example.sicredi.presentation.detail.DetailViewArg" />
     </fragment>
 </navigation>

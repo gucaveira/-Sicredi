@@ -2,6 +2,7 @@ package com.example.sicredi
 
 import android.app.Application
 import com.example.sicredi.di.coroutinesDispatchersModule
+import com.example.sicredi.di.imageLoaderModule
 import com.example.sicredi.di.networkModule
 import com.example.sicredi.di.repositoryModule
 import com.example.sicredi.di.useCaseModule
@@ -21,7 +22,8 @@ class SicrediApp : Application() {
                     viewModelModule,
                     repositoryModule,
                     useCaseModule,
-                    coroutinesDispatchersModule
+                    coroutinesDispatchersModule,
+                    imageLoaderModule
                 )
             )
         }

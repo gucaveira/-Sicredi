@@ -8,6 +8,8 @@ import com.example.core.usecase.base.AppCoroutinesDispatchers
 import com.example.core.usecase.base.CoroutinesDispatchers
 import com.example.sicredi.BuildConfig.BASE_URL
 import com.example.sicredi.framework.SicrediRepositoryImpl
+import com.example.sicredi.framework.imageLoader.GlideImageLoader
+import com.example.sicredi.framework.imageLoader.ImageLoader
 import com.example.sicredi.framework.network.Api
 import com.example.sicredi.presentation.eventslist.EventsViewModel
 import com.example.sicredi.remote.RetrofitDataSource
@@ -41,6 +43,10 @@ val networkModule = module {
 
 val viewModelModule = module {
     viewModel { EventsViewModel(get()) }
+}
+
+val imageLoaderModule = module {
+    factory<ImageLoader> { GlideImageLoader() }
 }
 
 val useCaseModule = module {
