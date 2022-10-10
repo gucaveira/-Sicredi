@@ -37,7 +37,9 @@
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/EventsFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/checkInEvent"
@@ -51,10 +53,5 @@
         <argument
             android:name="screenTitle"
             app:argType="string" />
-        <action
-            android:id="@+id/action_checkInEvent_to_EventsFragment"
-            app:destination="@id/EventsFragment"
-            app:popUpTo="@id/EventsFragment"
-            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
