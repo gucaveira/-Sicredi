@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".presentation.checkin.CheckInEventFragment">
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/editTextName"
         android:layout_width="395dp"
         android:layout_height="79dp"
@@ -22,7 +22,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/editTextEmail"
         android:layout_width="395dp"
         android:layout_height="66dp"

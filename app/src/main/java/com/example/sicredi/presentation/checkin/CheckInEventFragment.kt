@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.sicredi.R
 import com.example.sicredi.databinding.FragmentCheckInEventBinding
 import com.example.sicredi.presentation.eventslist.EventsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -32,11 +34,21 @@ class CheckInEventFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.includeCheckInEvent.TvConfirm.setOnClickListener {
-            viewModel.checkInEvent(
-                args.detailViewArg.eventId,
-                binding.includeCheckInEvent.editTextName.text.toString(),
-                binding.includeCheckInEvent.editTextEmail.text.toString()
-            )
+
+            binding.includeCheckInEvent.run {
+                if (editTextEmail.text.toString().isBlank() &&
+                    editTextName.text.toString().isBlank()
+                ) {
+                    editTextEmail.error = "vazio"
+                    editTextName.error = "vazio"
+                } else {
+                    viewModel.checkInEvent(
+                        args.detailViewArg.eventId,
+                        editTextName.text.toString(),
+                        editTextEmail.text.toString()
+                    )
+                }
+            }
         }
 
         viewModel.uiStateCheckIn.observe(viewLifecycleOwner) { uiState ->
