@@ -27,5 +27,21 @@
         <argument
             android:name="detailViewArg"
             app:argType="com.example.sicredi.presentation.detail.DetailViewArg" />
+        <action
+            android:id="@+id/action_DetailFragment_to_checkInEvent"
+            app:destination="@id/checkInEvent" />
+    </fragment>
+    <fragment
+        android:id="@+id/checkInEvent"
+        android:name="com.example.sicredi.presentation.checkin.CheckInEventFragment"
+        android:label="{screenTitle}"
+        tools:layout="@layout/include_check_in_event">
+        <argument
+            android:name="detailViewArg"
+            app:argType="com.example.sicredi.presentation.detail.DetailViewArg" />
+
+        <argument
+            android:name="screenTitle"
+            app:argType="string" />
     </fragment>
 </navigation>

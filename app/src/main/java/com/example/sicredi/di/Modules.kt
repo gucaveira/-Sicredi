@@ -2,6 +2,8 @@ package com.example.sicredi.di
 
 import com.example.core.data.repository.EventsRemoteDataSource
 import com.example.core.data.repository.EventsRepository
+import com.example.core.usecase.CheckInEventUseCase
+import com.example.core.usecase.CheckInEventUseCaseImpl
 import com.example.core.usecase.GetEventUseCaseImpl
 import com.example.core.usecase.GetEventsUseCase
 import com.example.core.usecase.base.AppCoroutinesDispatchers
@@ -42,7 +44,7 @@ val networkModule = module {
 }
 
 val viewModelModule = module {
-    viewModel { EventsViewModel(get()) }
+    viewModel { EventsViewModel(get(), get()) }
 }
 
 val imageLoaderModule = module {
@@ -51,6 +53,7 @@ val imageLoaderModule = module {
 
 val useCaseModule = module {
     factory<GetEventsUseCase> { GetEventUseCaseImpl(get(), get()) }
+    factory<CheckInEventUseCase> { CheckInEventUseCaseImpl(get(), get()) }
 }
 
 val coroutinesDispatchersModule = module {

@@ -10,15 +10,15 @@ import kotlinx.coroutines.withContext
 
 
 interface GetEventsUseCase {
-    operator fun invoke(): Flow<ResultStatus<Events>>
+    operator fun invoke(params: Unit): Flow<ResultStatus<Events>>
 }
 
 class GetEventUseCaseImpl(
     private val repository: EventsRepository,
     private val dispatchers: CoroutinesDispatchers
-) : UserCase<Events>(), GetEventsUseCase {
+) : UserCase<Unit, Events>(), GetEventsUseCase {
 
-    override suspend fun doWork(): ResultStatus<Events> {
+    override suspend fun doWork(params: Unit): ResultStatus<Events> {
         return withContext(dispatchers.io()) {
             ResultStatus.Success(repository.fetchEvents())
         }

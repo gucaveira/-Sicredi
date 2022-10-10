@@ -2,4 +2,6 @@
     <string name="app_name">Sicredi</string>
     <string name="events_no_events_in_the_list">Não há eventos</string>
     <string name="label_tools">Vamos ajudar !!\n\nSe você tem na sua casa roupas que estão em bom estado de uso e não sabemos que fazer, coloque aqui na nossa página sua cidade e sua doação, com certeza poderá ajudar outras pessoas que estão passando por problemas econômicos no momento!!\n\nAjudar não faz mal a ninguém!!!\n</string>
+    <string name="check_in_success">Check in feito com sucesso!</string>
+    <string name="check_in_error">Erro ao fazer o check in</string>
 </resources>

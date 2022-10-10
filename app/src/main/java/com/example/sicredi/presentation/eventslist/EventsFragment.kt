@@ -31,7 +31,7 @@ class EventsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.uiState.observe(viewLifecycleOwner) { uiState ->
+        viewModel.uiStateGetEvents.observe(viewLifecycleOwner) { uiState ->
             binding.flipperEvents.displayedChild = when (uiState) {
                 EventsViewModel.UiState.Loading -> {
                     FLIPPER_CHILD_POSITION_LIST_EVENTS_LOADING

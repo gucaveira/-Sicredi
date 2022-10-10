@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.sicredi.databinding.FragmentDetailBinding
 import com.example.sicredi.framework.imageLoader.ImageLoader
@@ -35,6 +36,14 @@ class DetailFragment : Fragment() {
 
         binding.imageEvent.run {
             imageLoader.load(this, detailViewArg.imageUrl)
+        }
+
+        binding.btnCheckIn.setOnClickListener {
+            val directions = DetailFragmentDirections.actionDetailFragmentToCheckInEvent(
+                args.detailViewArg,
+                args.screenTitle
+            )
+            findNavController().navigate(directions)
         }
     }
 
