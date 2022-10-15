@@ -23,7 +23,7 @@ class EventsViewModel(
 
     fun fetchEvent() {
         viewModelScope.launch {
-            getEventsUseCase(Unit).collect { status ->
+            getEventsUseCase().collect { status ->
                 _uiStateGetEvents.value = when (status) {
                     ResultStatus.Loading -> UiState.Loading
 

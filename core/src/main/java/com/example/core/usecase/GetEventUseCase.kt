@@ -10,7 +10,7 @@ import kotlinx.coroutines.withContext
 
 
 interface GetEventsUseCase {
-    operator fun invoke(params: Unit): Flow<ResultStatus<Events>>
+    operator fun invoke(params: Unit = Unit): Flow<ResultStatus<Events>>
 }
 
 class GetEventUseCaseImpl(
